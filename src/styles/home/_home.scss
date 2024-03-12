@@ -1,0 +1,31 @@
+.container-home {
+  display: flex;
+  flex-direction: column;
+  .presentation-home {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-evenly;
+    &__img {
+      width: 40%;
+    }
+    &__text {
+      justify-content: center;
+      width: 60%;
+      h5 {
+        font-family: "Quicksand";
+        font-size: larger;
+        color: $color-1;
+      }
+    }
+  }
+}
+.separator {
+  background-color: $color-5;
+  color: $color-1;
+  text-align: center;
+  width: -webkit-fill-available;
+  height: 50px;
+  font-size: xx-large;
+  padding-top: 1rem;
+}

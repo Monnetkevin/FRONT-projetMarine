@@ -1,0 +1,36 @@
+.header-main {
+  display: flex;
+  position: relative;
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  min-height: 500px;
+  background-color: $color-2;
+  color: $white;
+  box-shadow: 0 2px 4px $color-5;
+  &__left {
+    width: 40%;
+    h2 {
+      margin: 0;
+      font-size: 2rem;
+      padding-bottom: 2rem;
+    }
+    p {
+      margin-right: 1rem;
+      font-size: 1rem;
+      padding-bottom: 2rem;
+    }
+  }
+  &__right {
+    height: 100%;
+    img {
+      position: absolute;
+      height: -webkit-fill-available;
+      margin-top: 3rem;
+      right: 5%;
+      bottom: 0;
+      z-index: 10;
+    }
+  }
+}

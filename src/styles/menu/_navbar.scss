@@ -1,0 +1,157 @@
+.container {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  background-color: $color-5;
+  padding: 1rem;
+  display: list-item;
+  align-items: center;
+  justify-content: space-between;
+  .left-section {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    &__logo {
+      text-decoration: none;
+      color: $white;
+      font-weight: bold;
+      font-size: 1.5rem;
+
+      &__brand-name {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .right-section {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+
+    .auth-links {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      .cart-btn {
+        border: none;
+        background: none;
+        cursor: pointer;
+        margin-right: 10px;
+        &__icon-cart {
+          color: $white;
+          &:hover {
+            color: $color-1;
+          }
+        }
+      }
+
+      .dropdown-btn {
+        border: none;
+        background: none;
+        cursor: pointer;
+        margin-right: 25px;
+        &__icon-user {
+          color: $white;
+          &:hover {
+            color: $color-1;
+          }
+        }
+      }
+
+      .dropdown-content {
+        position: relative;
+        display: none;
+        ul {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background-color: $color-5;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          list-style-type: none;
+          padding: 0.5rem 0;
+          border-radius: 0.25rem;
+          li {
+            padding: 0.5rem 1rem;
+            list-style: none;
+            a {
+              color: $white;
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+                color: $color-1;
+              }
+            }
+          }
+        }
+      }
+      &.show-dropdown .dropdown-content {
+        display: block;
+      }
+    }
+
+    .connexion-links {
+      display: flex;
+      flex-direction: column;
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: right;
+
+        li {
+          display: inline-block;
+          margin-right: 1rem;
+
+          a {
+            text-decoration: none;
+            color: $white;
+
+            &:hover {
+              text-decoration: underline;
+              color: $color-1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .middle-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+
+    &__nav-links {
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          margin-right: 1rem;
+
+          a {
+            text-decoration: none;
+            color: $white;
+
+            &.active {
+              font-weight: bold;
+            }
+
+            &:hover {
+              text-decoration: underline;
+              color: $color-1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

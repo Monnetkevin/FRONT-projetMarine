@@ -1,0 +1,38 @@
+.cardProduct {
+  width: 450px;
+  margin-bottom: 20px;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  text-align: center;
+
+  .cardProduct-img {
+    width: 100%;
+    height: 50%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cardProduct-content {
+    padding: 20px;
+  }
+
+  .cardProduct-title {
+    color: $color-1;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cardProduct-text {
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+.list-cardProduct {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

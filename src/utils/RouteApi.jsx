@@ -9,9 +9,13 @@ export const API_ROUTE = {
   REGISTER: API_URL + "/register",
 
   PRODUCT: API_URL + "/products",
+  // PRODUCTDETAIL: API_URL + "/products/{id}",
   LASTPRODUCT: API_URL + "/products/last",
+
   EVENT: API_URL + "/events",
+
   COMMENT: API_URL + "/comments",
+  LASTCOMMENT: API_URL + "/comments/last",
 };
 
 export const API_FUNCTION = {
@@ -27,12 +31,24 @@ export const API_FUNCTION = {
       console.log(error);
     }
   },
+  // productDetail: async () => {
+  //   try {
+  //     const res = await axios.get(API_ROUTE.PRODUCTDETAIL);
+  //     if (res.data.status === "success") {
+  //       return res.data.data;
+  //     } else {
+  //       return res.data.message;
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // },
 
   lastProduct: async () => {
     try {
       const res = await axios.get(API_ROUTE.LASTPRODUCT);
       if (res.data.status === "success") {
-        return res.data.lastproduct;
+        return res.data.data;
       } else {
         return res.data.message;
       }
@@ -57,6 +73,19 @@ export const API_FUNCTION = {
   comments: async () => {
     try {
       const res = await axios.get(API_ROUTE.COMMENT);
+      if (res.data.status === "success") {
+        return res.data.data;
+      } else {
+        return res.data.message;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  lastComment: async () => {
+    try {
+      const res = await axios.get(API_ROUTE.LASTCOMMENT);
       if (res.data.status === "success") {
         return res.data.data;
       } else {

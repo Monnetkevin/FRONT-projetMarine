@@ -40,6 +40,14 @@ const getEmail = () => {
     return false;
   }
 };
+const getAvatar = () => {
+  // On teste si il y a un token décodé et si il n'a pas expiré
+  if (getExpiryTime()) {
+    return getDecodedToken().avatar;
+  } else {
+    return false;
+  }
+};
 
 const loggedAndAdmin = () => {
   // Check si il y a un token valide et check si le rôle est celui d'un admin, répond true quand c'est vrai
@@ -53,5 +61,6 @@ export default {
   loggedAndAdmin,
   getExpiryTime,
   getEmail,
+  getAvatar,
   logged,
 };

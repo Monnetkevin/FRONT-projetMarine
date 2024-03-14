@@ -20,13 +20,23 @@ export const GlobalProvider = ({ children }) => {
       API_FUNCTION.events().then((res) => {
         setEvents(res);
       });
-
       setIsLoaded(true);
     }
   }, [isLoaded]);
 
   return (
-    <GlobalContext.Provider value={{ products, events, comments, isLoaded }}>
+    <GlobalContext.Provider
+      value={{
+        products,
+        setProducts,
+        events,
+        setEvents,
+        comments,
+        setComments,
+        isLoaded,
+        setIsLoaded,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );

@@ -1,0 +1,23 @@
+.footer {
+  width: 100%;
+  background-color: $color-5;
+  color: $color-1;
+  font-family: "Quicksand";
+  font-size: 20px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  // position: absolute;
+  bottom: 0;
+}
+
+.footer-social {
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  margin-right: 30px;
+  &__icon {
+    color: $color-1;
+    margin-left: 30px;
+  }
+}

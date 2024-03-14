@@ -3,6 +3,7 @@ import Header from "../components/menu/Header";
 import Separator from "../components/utils/Separator";
 import imgPresentation from "../assets/images/img_presentation_.png";
 import ListProduct from "../components/product/ListProduct";
+import ListComment from "../components/comment/ListComment";
 
 function Home() {
   return (
@@ -11,7 +12,7 @@ function Home() {
         title="Bienvenue"
         text="Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, contenu n'en soit"
       />
-      <Separator>Présentation</Separator>
+      {/* <Separator>Présentation</Separator> */}
       <div className="presentation-home">
         <div className="presentation-home__img">
           <img src={imgPresentation} alt="Image de MATISSE Marine" />
@@ -33,6 +34,8 @@ function Home() {
       </div>
       <Separator>Les derniers Ajouts</Separator>
       <ListProduct />
+      <Separator>Les derniers Commentaires</Separator>
+      <ListComment />
     </div>
   );
 }

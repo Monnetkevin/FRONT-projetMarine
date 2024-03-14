@@ -2,8 +2,14 @@
 
 @import "./menu/navbar";
 @import "./menu/header";
+@import "./menu/footer";
 
 @import "./auth/loginForm";
 @import "./auth/RegisterForm";
 
 @import "./home/home";
+@import "./home/cardProductHome";
+@import "./home/cardCommentHome";
+
+@import "./shop/shop";
+@import "./shop/poductDetail";

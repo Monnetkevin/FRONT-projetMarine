@@ -5,6 +5,8 @@ import { API_IMG, API_ROUTE } from "../../utils/RouteApi";
 import Header from "../../components/menu/Header";
 import Button from "../../components/utils/ButtonHome";
 import FormProductComment from "../../components/comment/FormProductComment";
+import SeparatorDetailProduct from "../../components/utils/SeparatorDetailProduct";
+import ListComment from "../../components/comment/ListComment";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -53,6 +55,15 @@ function ProductDetails() {
             </div>
           </div>
           <FormProductComment id={id} />
+          <SeparatorDetailProduct />
+          <div className="container-commentshopDetail">
+            <div className="commentShopDetail">
+              <div className="commentShopDetail__title">
+                <h5>Les commentaires du livre</h5>
+              </div>
+              <ListComment id={id} />
+            </div>
+          </div>
         </div>
       )}
     </>

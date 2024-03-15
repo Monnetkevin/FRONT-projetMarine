@@ -25,7 +25,7 @@ function FormProductComment({ id }) {
   };
   return (
     <>
-      {auth.logged() && (
+      {auth.logged() ? (
         <div className="container-formProductComment">
           <div className="formProductComment">
             <div className="formProductComment__img">
@@ -56,6 +56,10 @@ function FormProductComment({ id }) {
               </form>
             </div>
           </div>
+        </div>
+      ) : (
+        <div className="formProductComment__commentLogin">
+          <h5>Si tu souhaite mettre un commentaire, connecte-toi !</h5>
         </div>
       )}
     </>

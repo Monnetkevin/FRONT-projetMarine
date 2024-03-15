@@ -9,7 +9,6 @@ export const API_ROUTE = {
   REGISTER: API_URL + "/register",
 
   PRODUCT: API_URL + "/products",
-  // PRODUCTDETAIL: API_URL + "/products/{id}",
   LASTPRODUCT: API_URL + "/products/last",
 
   EVENT: API_URL + "/events",

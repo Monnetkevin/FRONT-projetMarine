@@ -6,6 +6,7 @@ import ListProduct from "../components/product/ListProduct";
 import ListComment from "../components/comment/ListComment";
 
 function Home() {
+  const three = "three";
   return (
     <div className="container-home">
       <Header
@@ -35,7 +36,7 @@ function Home() {
       <Separator>Les derniers Ajouts</Separator>
       <ListProduct />
       <Separator>Les derniers Commentaires</Separator>
-      <ListComment />
+      <ListComment three={three} />
     </div>
   );
 }

@@ -28,19 +28,27 @@
     }
   }
 }
-
+.separatorDetailProduct {
+  width: 30%;
+  align-content: center;
+  height: 1px;
+  background-color: $color-4;
+  margin: 100px auto;
+}
+.container-formProductComment {
+  margin: 100px 0 100px 0;
+}
 .formProductComment {
   display: flex;
   justify-content: center;
   margin-top: 50px;
   &__img {
     width: 150px;
-    overflow: hidden;
-    border-radius: 100%;
     img {
       width: 100%;
       height: auto;
       object-fit: cover;
+      border-radius: 100%;
     }
   }
   &__content {
@@ -59,8 +67,8 @@
         padding: 10px;
         margin: 15px 0 15px;
         font-size: 20px;
-        border: 2px solid $color-4; /* Bordure du champ de saisie */
-        border-radius: 8px; /* Bordure arrondie */
+        border: 2px solid $color-4;
+        border-radius: 8px;
         box-sizing: border-box;
       }
     }
@@ -81,5 +89,17 @@
     &__error {
       color: $color-1;
     }
+  }
+  &__commentLogin {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+.commentShopDetail {
+  &__title {
+    font-family: "Quicksand";
+    font-size: 25px;
+    text-align: center;
   }
 }

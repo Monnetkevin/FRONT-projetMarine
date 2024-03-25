@@ -1,4 +1,5 @@
 .footer {
+  // height: calc(100vh - $heightFooter - $heightHeader - $heightNavbar);
   width: 100%;
   background-color: $color-5;
   color: $color-1;
@@ -7,7 +8,7 @@
   justify-content: center;
   display: flex;
   flex-direction: row;
-  // position: absolute;
+  left: 0;
   bottom: 0;
 }
 

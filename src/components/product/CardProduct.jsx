@@ -24,7 +24,7 @@ function CardProduct({ product }) {
           <p>{product.product_content}</p>
         </div> */}
         <Button linkTo={`/boutique/${product.id}`} size="large">
-          Apercu
+          Aperçu
         </Button>
       </div>
       {/* <div className="cardProduct-backContent">

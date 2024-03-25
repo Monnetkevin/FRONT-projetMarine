@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Button({ linkTo, children, color, size }) {
   const [hovered, setHovered] = useState(false);
@@ -32,14 +33,14 @@ function Button({ linkTo, children, color, size }) {
   };
 
   return (
-    <a
-      href={linkTo}
+    <Link
+      to={linkTo}
       style={buttonStyle}
       onMouseEnter={handleHover}
       onMouseLeave={handleHoverExite}
     >
       {children}
-    </a>
+    </Link>
   );
 }
 

@@ -9,6 +9,7 @@ import { GlobalProvider } from "./components/context/GlobalContext";
 import Shop from "./pages/shop/Shop";
 import Footer from "./components/menu/Footer";
 import ProductDetails from "./pages/shop/ProductDetails";
+import Dashboard from "./pages/admin/Dashboard";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/evenement" element={""} />
             <Route path="/contact" element={""} />
             <Route path="/boutique/:id" element={<ProductDetails />} />
+            <Route path="/profil" element={<Dashboard />} />
           </Routes>
           <Footer />
         </BrowserRouter>

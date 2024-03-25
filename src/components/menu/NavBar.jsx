@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import UserDropdown from "./UserDropdown";
 import auth from "../auth/Token";
 import { useAuth } from "../context/LoginContext";
@@ -20,28 +21,28 @@ function NavBar() {
     <nav className="navbar">
       <div className="container">
         <div className="left-section">
-          <a href="/" className="left-section__logo">
+          <Link to="/" className="left-section__logo">
             <span className="left-section__logo__brand-name">
               MATISSE Marine
             </span>
-          </a>
+          </Link>
         </div>
         <div className="middle-section">
           <div className="middle-section__nav-links">
             <ul>
               <li>
-                <a href="/" className="active">
+                <Link to="/" className="active">
                   Accueil
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/boutique">Boutique</a>
+                <Link to="/boutique">Boutique</Link>
               </li>
               <li>
-                <a href="/evenement">Evenement</a>
+                <Link to="/evenement">Evenement</Link>
               </li>
               <li>
-                <a href="/contact">Contact</a>
+                <Link to="/contact">Contact</Link>
               </li>
             </ul>
           </div>
@@ -53,10 +54,10 @@ function NavBar() {
             <div className="connexion-links">
               <ul>
                 <li>
-                  <a href="/connexion">Connexion</a>
+                  <Link to="/connexion">Connexion</Link>
                 </li>
                 <li>
-                  <a href="/inscription">Inscription</a>
+                  <Link to="/inscription">Inscription</Link>
                 </li>
               </ul>
             </div>

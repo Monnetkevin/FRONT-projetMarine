@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleUser,
@@ -14,6 +15,7 @@ function UserDropdown() {
   };
 
   // Fermer le menu déroulant si on clique en dehors de celui-ci
+
   const handleClickOutside = (event) => {
     if (!dropdownRef.current.contains(event.target)) {
       setShowDropdown(false);
@@ -37,7 +39,11 @@ function UserDropdown() {
           size="lg"
         />
       </div>
-      <button className="dropdown-btn" onClick={toggleDropdown}>
+      <button
+        className="dropdown-btn"
+        onClick={toggleDropdown}
+        ref={dropdownRef}
+      >
         <FontAwesomeIcon
           className="dropdown-btn__icon-user"
           icon={faCircleUser}
@@ -45,18 +51,20 @@ function UserDropdown() {
         />
       </button>
       <div
-        className={`dropdown-content ${showDropdown ? "show-dropdown" : ""}`}
-        ref={dropdownRef}
+        className={`dropdown-content ${
+          showDropdown ? "auth-links__show-dropdown" : ""
+        }`}
       >
         <ul>
           <li>
-            <a href="/dashboard">Dashboard</a>
+            <Link className="dropdown-content__link" to="/profil">
+              Profil
+            </Link>
           </li>
           <li>
-            <a href="/profil">Profil</a>
-          </li>
-          <li>
-            <a href="/deconnexion">Déconnexion</a>
+            <Link className="dropdown-content__link" to="/deconnexion">
+              Déconnexion
+            </Link>
           </li>
         </ul>
       </div>

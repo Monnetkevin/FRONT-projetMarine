@@ -8,6 +8,7 @@ export const GlobalProvider = ({ children }) => {
   const [events, setEvents] = useState([]);
   const [comments, setComments] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     if (isLoaded === false) {
@@ -19,6 +20,9 @@ export const GlobalProvider = ({ children }) => {
       });
       API_FUNCTION.events().then((res) => {
         setEvents(res);
+      });
+      API_FUNCTION.categories().then((res) => {
+        setCategories(res);
       });
       setIsLoaded(true);
     }
@@ -33,6 +37,7 @@ export const GlobalProvider = ({ children }) => {
         setEvents,
         comments,
         setComments,
+        categories,
         isLoaded,
         setIsLoaded,
       }}

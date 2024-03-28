@@ -63,4 +63,6 @@ export default {
   getEmail,
   getAvatar,
   logged,
+  getDecodedToken,
+  getToken,
 };

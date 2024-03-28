@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { API_ROUTE } from "../../utils/RouteApi";
 import auth from "../auth/Token";
+import { useAuth } from "../context/LoginContext";
 
 function LoginForm() {
   const {
@@ -12,12 +13,14 @@ function LoginForm() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
+  const { setToken } = useAuth();
 
   const login = async (data) => {
     try {
       const res = await axios.post(API_ROUTE.LOGIN, data);
       if (res.status === 200) {
         localStorage.setItem("access_token", res.data.data.access_token.token);
+        setToken(auth.getToken());
         navigate("/");
       }
     } catch (error) {

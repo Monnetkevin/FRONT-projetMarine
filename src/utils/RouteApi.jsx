@@ -15,9 +15,29 @@ export const API_ROUTE = {
 
   COMMENT: API_URL + "/comments",
   LASTCOMMENT: API_URL + "/comments/last",
+
+  CURRENTUSER: API_URL + "/currentUser",
+  UPDATEUSER: API_URL + "/users/",
+
+  CATEGORY: API_URL + "/categories",
+
+  IMGPRODUCT: API_URL + "/images",
 };
 
 export const API_FUNCTION = {
+  categories: async () => {
+    try {
+      const res = await axios.get(API_ROUTE.CATEGORY);
+      if (res.data.status === "success") {
+        return res.data.data;
+      } else {
+        return res.data.message;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   products: async () => {
     try {
       const res = await axios.get(API_ROUTE.PRODUCT);
@@ -30,18 +50,6 @@ export const API_FUNCTION = {
       console.log(error);
     }
   },
-  // productDetail: async () => {
-  //   try {
-  //     const res = await axios.get(API_ROUTE.PRODUCTDETAIL);
-  //     if (res.data.status === "success") {
-  //       return res.data.data;
-  //     } else {
-  //       return res.data.message;
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
 
   lastProduct: async () => {
     try {
@@ -90,6 +98,19 @@ export const API_FUNCTION = {
       } else {
         return res.data.message;
       }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  currentUser: async () => {
+    try {
+      const res = await axios.get(API_ROUTE.CURRENTUSER, {
+        headers: {
+          Authorization: "Bearer" + localStorage.getItem("access_token"),
+        },
+      });
+      return res.data;
     } catch (error) {
       console.log(error);
     }

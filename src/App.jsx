@@ -10,6 +10,8 @@ import Shop from "./pages/shop/Shop";
 import Footer from "./components/menu/Footer";
 import ProductDetails from "./pages/shop/ProductDetails";
 import Dashboard from "./pages/admin/Dashboard";
+import { TOAST } from "./utils/Toast";
+// import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
       <GlobalProvider>
         <BrowserRouter>
           <NavBar />
+          {TOAST.container}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/connexion" element={<Login />} />

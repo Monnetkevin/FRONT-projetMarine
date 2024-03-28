@@ -36,10 +36,14 @@ function ProductDetails() {
           <Header title={productDetail.data.product_name} />
           <div className="shopDetail">
             <div className="shopDetail__img">
-              <img
-                src={API_IMG + `${productDetail.image[0].image_name}`}
-                alt={productDetail.data.product_name}
-              />
+              {productDetail.image[0] ? (
+                <img
+                  src={API_IMG + `${productDetail.image[0].image_name}`}
+                  alt={productDetail.data.product_name}
+                />
+              ) : (
+                <p>Pas d'image</p>
+              )}
             </div>
             <div className="shopDetail__content">
               <div className="shopDetail__content__title">

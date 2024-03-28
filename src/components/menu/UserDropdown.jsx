@@ -1,12 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleUser,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import { API_ROUTE } from "../../utils/RouteApi";
+import auth from "../auth/Token";
+import { useAuth } from "../context/LoginContext";
 
 function UserDropdown() {
+  const { setIsConnected, token, setToken } = useAuth();
+  const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -29,6 +35,24 @@ function UserDropdown() {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
+
+  const logout = async () => {
+    if (token) {
+      try {
+        await axios.post(API_ROUTE.LOGOUT, null, {
+          headers: {
+            Authorization: "Bearer" + auth.getToken(),
+          },
+        });
+        localStorage.removeItem("access_token");
+        setToken(null);
+        setIsConnected(false);
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
 
   return (
     <div className="auth-links">
@@ -62,7 +86,12 @@ function UserDropdown() {
             </Link>
           </li>
           <li>
-            <Link className="dropdown-content__link" to="/deconnexion">
+            <Link
+              className="dropdown-content__link"
+              onClick={() => {
+                logout();
+              }}
+            >
               Déconnexion
             </Link>
           </li>

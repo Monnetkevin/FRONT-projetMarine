@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import UserDropdown from "./UserDropdown";
-import auth from "../auth/Token";
+
 import { useAuth } from "../context/LoginContext";
 
 function NavBar() {
-  const { isConnected } = useAuth();
+  const { token } = useAuth();
   // const [isAuthenticated, setIsAuthenticated] = useState(isConnected);
 
   // useEffect(() => {
@@ -48,7 +48,7 @@ function NavBar() {
           </div>
         </div>
         <div className="right-section">
-          {auth.logged() ? (
+          {token ? (
             <UserDropdown />
           ) : (
             <div className="connexion-links">

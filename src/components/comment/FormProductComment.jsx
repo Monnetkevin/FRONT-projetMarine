@@ -59,7 +59,7 @@ function FormProductComment({ id }) {
         </div>
       ) : (
         <div className="formProductComment__commentLogin">
-          <h5>Si tu souhaite mettre un commentaire, connecte-toi !</h5>
+          <h5>Si tu souhaites mettre un commentaire, connecte-toi !</h5>
         </div>
       )}
     </>

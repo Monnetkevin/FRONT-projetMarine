@@ -1,0 +1,27 @@
+.currentAdresse {
+  display: flex;
+  flex-direction: column;
+
+  &__address {
+    h5 {
+      text-align: center;
+    }
+    margin: 10px 0 10px 0;
+    padding: 15px;
+    border: 1px solid $color-4;
+    border-radius: 3px;
+  }
+}
+.container-addresses {
+  &__icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    p {
+      margin-left: 15px;
+    }
+  }
+  &__btn {
+    margin-bottom: 10px;
+  }
+}

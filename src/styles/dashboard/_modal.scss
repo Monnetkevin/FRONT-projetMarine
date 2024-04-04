@@ -17,7 +17,8 @@
     max-width: 80%;
 
     .modal-close {
-      position: absolute;
+      position: relative;
+      align-self: flex-end;
       top: 10px;
       right: 10px;
       background: none;

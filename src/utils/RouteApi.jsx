@@ -13,7 +13,9 @@ export const API_ROUTE = {
 
   EVENT: API_URL + "/events",
 
-  COMMENT: API_URL + "/comments",
+  ADDRESS: API_URL + "/addresses/",
+
+  COMMENT: API_URL + "/comments/",
   LASTCOMMENT: API_URL + "/comments/last",
 
   CURRENTUSER: API_URL + "/currentUser",
@@ -111,6 +113,23 @@ export const API_FUNCTION = {
         },
       });
       return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  addresses: async (id) => {
+    try {
+      const res = await axios.get(API_ROUTE.ADDRESS + `${id}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+        },
+      });
+      if (res.data.status === "success") {
+        return res.data.data;
+      } else {
+        return res.data.message;
+      }
     } catch (error) {
       console.log(error);
     }

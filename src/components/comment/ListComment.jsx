@@ -9,13 +9,17 @@ function ListComment({ three, id }) {
   return (
     <div className="list-cardComment">
       {three === "three" ? (
-        threeComments.map((comment) => (
-          <CardComment key={comment.id} comment={comment} />
-        ))
+        threeComments.map(
+          (comment) =>
+            comment.is_active === 1 && (
+              <CardComment key={comment.id} comment={comment} />
+            )
+        )
       ) : comments.length > 0 ? (
         comments.map(
           (comment) =>
-            comment.product_id === Number(id) && (
+            comment.product_id === Number(id) &&
+            comment.is_active === 1 && (
               <CardComment key={comment.id} comment={comment} />
             )
         )

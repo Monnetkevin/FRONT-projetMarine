@@ -13,19 +13,15 @@ const getDecodedToken = () => {
 };
 
 const getExpiryTime = () => {
-  // Check si le token est valide et n'a pas expiré
   if (getDecodedToken() && !(getDecodedToken().exp * 1000 < Date.now())) {
-    return true;
+    return localStorage.getItem("access_token");
   } else {
     return localStorage.removeItem("access_token");
   }
 };
 
 const getRoles = () => {
-  // On teste si il y a un token décodé et si il n'a pas expiré
   if (getExpiryTime()) {
-    // la valeur de base est un tableau dans un string, on le parse pour faire sauter le string et
-    // on le tostring pour faire sauter le tableau, comme ça on a seulement la valeur
     return getDecodedToken().role.role_name;
   } else {
     return false;
@@ -33,7 +29,6 @@ const getRoles = () => {
 };
 
 const getEmail = () => {
-  // On teste si il y a un token décodé et si il n'a pas expiré
   if (getExpiryTime()) {
     return getDecodedToken().email;
   } else {
@@ -41,7 +36,6 @@ const getEmail = () => {
   }
 };
 const getAvatar = () => {
-  // On teste si il y a un token décodé et si il n'a pas expiré
   if (getExpiryTime()) {
     return getDecodedToken().avatar;
   } else {
@@ -50,7 +44,6 @@ const getAvatar = () => {
 };
 
 const loggedAndAdmin = () => {
-  // Check si il y a un token valide et check si le rôle est celui d'un admin, répond true quand c'est vrai
   return !!(getExpiryTime() && getRoles() === "admin");
 };
 const logged = () => {

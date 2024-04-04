@@ -11,7 +11,7 @@ export const GlobalProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    if (isLoaded === false) {
+    if (!isLoaded) {
       API_FUNCTION.products().then((res) => {
         setProducts(res);
       });

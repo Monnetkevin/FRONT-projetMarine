@@ -4,59 +4,43 @@ import { useAuth } from "../../components/context/LoginContext";
 import {
   faBook,
   faCalendar,
-  faCartShopping,
   faComments,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import ButtonDashboard from "../../components/utils/ButtonDashboard";
 import ProfilDashboard from "./ProfilDashboard";
 import ProductAddForm from "../../components/product/ProductAddForm";
+import CommentDashboard from "./CommentDashboard";
 
 function Dashboard() {
   const [currentDashboard, setCurrentDashboard] = useState("profil");
-  const { user } = useAuth;
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!user) {
+      console.log("caca");
       navigate("/");
     }
   }, [user]);
-  console.log(user);
 
   return (
     <div className="container-dashboard">
       <Header title="Gestion du compte" />
+
       <div className="dashboard">
-        <div className="sidebar">
-          <ul>
-            <ButtonDashboard
-              icon={faUser}
-              setCurrentDashboard={setCurrentDashboard}
-              currentDashboard="profil"
-            >
-              Votre Profil
-            </ButtonDashboard>
-
-            <ButtonDashboard
-              icon={faCartShopping}
-              setCurrentDashboard={setCurrentDashboard}
-              currentDashboard="commande"
-            >
-              Vos Commandes
-            </ButtonDashboard>
-            <ButtonDashboard
-              icon={faComments}
-              setCurrentDashboard={setCurrentDashboard}
-              currentDashboard="commentaire"
-            >
-              Vos Commentaires
-            </ButtonDashboard>
-
-            {user.role_id === 2 && (
+        {user.role_id === 2 && (
+          <div className="sidebar">
+            <ul>
               <div className="sidebar__admin">
                 <p>Panel Admin</p>
+                <ButtonDashboard
+                  icon={faComments}
+                  setCurrentDashboard={setCurrentDashboard}
+                  currentDashboard="ValideComments"
+                >
+                  Valider les commentaires
+                </ButtonDashboard>
                 <ButtonDashboard
                   icon={faBook}
                   setCurrentDashboard={setCurrentDashboard}
@@ -72,10 +56,11 @@ function Dashboard() {
                   Ajouter un Evenement
                 </ButtonDashboard>
               </div>
-            )}
-          </ul>
-        </div>
+            </ul>
+          </div>
+        )}
         <div className="content">
+          {currentDashboard === "ValideComments" && <CommentDashboard />}
           {currentDashboard === "profil" && <ProfilDashboard />}
           {currentDashboard === "livre" && <ProductAddForm />}
         </div>

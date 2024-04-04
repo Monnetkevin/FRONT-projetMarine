@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { API_ROUTE } from "../../utils/RouteApi";
+import Toast from "../../utils/Toast";
 
 function RegisterForm() {
   const {
@@ -14,11 +15,16 @@ function RegisterForm() {
 
   const registerSubmit = async (data) => {
     try {
-      const res = await axios
-        .post(API_ROUTE.REGISTER, data)
-        .then(navigate("/connexion"));
-      return res.data;
+      const res = await axios.post(API_ROUTE.REGISTER, data);
+
+      if (res.data.status === "access") {
+        Toast.toastSuccess(res.data.message);
+        navigate("/connexion");
+      } else {
+        Toast.toastError(res.data.message);
+      }
     } catch (error) {
+      Toast.toastError("erreur");
       console.log(error);
     }
   };

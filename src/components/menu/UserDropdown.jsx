@@ -11,7 +11,7 @@ import auth from "../auth/Token";
 import { useAuth } from "../context/LoginContext";
 
 function UserDropdown() {
-  const { setIsConnected, token, setToken } = useAuth();
+  const { setIsConnected, token, setToken, setUser } = useAuth();
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
@@ -46,6 +46,7 @@ function UserDropdown() {
         });
         localStorage.removeItem("access_token");
         setToken(null);
+        setUser(null);
         setIsConnected(false);
         navigate("/");
       } catch (error) {

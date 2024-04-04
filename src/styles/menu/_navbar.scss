@@ -8,10 +8,8 @@
 .navbar {
   height: $heightNavbar;
   background-color: $color-5;
-  padding: 1rem;
   display: list-item;
-  align-items: center;
-  justify-content: space-between;
+  align-content: center;
   .left-section {
     flex: 1;
     display: flex;

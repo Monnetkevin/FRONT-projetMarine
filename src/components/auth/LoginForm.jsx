@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { API_ROUTE } from "../../utils/RouteApi";
 import auth from "../auth/Token";
 import { useAuth } from "../context/LoginContext";
+import { toast } from "react-toastify";
 
 function LoginForm() {
   const {
@@ -18,12 +19,17 @@ function LoginForm() {
   const login = async (data) => {
     try {
       const res = await axios.post(API_ROUTE.LOGIN, data);
-      if (res.status === 200) {
+
+      if (res.data.meta.status === "success") {
         localStorage.setItem("access_token", res.data.data.access_token.token);
         setToken(auth.getToken());
+        toast.success(res.data.meta.message);
         navigate("/");
+      } else {
+        toast.error(res.data.meta.message);
       }
     } catch (error) {
+      toast.error("erreur");
       console.log(error);
     }
   };

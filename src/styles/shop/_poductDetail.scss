@@ -4,6 +4,9 @@
   justify-content: center;
   &__img {
     margin-left: 100px;
+    img {
+      width: 350px;
+    }
   }
   &__content {
     width: 50%;

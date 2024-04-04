@@ -9,14 +9,14 @@ function ProductAddForm() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
-  const { categories } = useGlobalContext();
+  const { categories, products, setProducts, setIsLoaded } = useGlobalContext();
 
   const addBook = async (data) => {
     try {
-      console.log("caca", data);
       const request = { ...data, image_name: null };
       const res = await axios.post(API_ROUTE.PRODUCT, request, {
         headers: {
@@ -29,12 +29,21 @@ function ProductAddForm() {
           image_name: data.image_name[0],
           product_id: res.data.data.id,
         };
-        console.log("piipii", requestImg);
+
         await axios.post(API_ROUTE.IMGPRODUCT, requestImg, {
           headers: {
             Authorization: "Bearer" + auth.getToken(),
+            "Content-Type": "multipart/form-data",
           },
         });
+
+        // mise à jour du state du produit
+        const updateProduct = products.map((product) =>
+          product.id === res.data.data.id ? res.data.data : product
+        );
+        setProducts(updateProduct);
+        setIsLoaded(false);
+        reset();
       } else {
         console.log("toast");
       }

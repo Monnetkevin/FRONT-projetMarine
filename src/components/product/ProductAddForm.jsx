@@ -4,6 +4,7 @@ import { useGlobalContext } from "../context/GlobalContext";
 import auth from "../../components/auth/Token";
 import axios from "axios";
 import { API_ROUTE } from "../../utils/RouteApi";
+import Toast from "../../utils/Toast";
 
 function ProductAddForm() {
   const {
@@ -44,10 +45,12 @@ function ProductAddForm() {
         setProducts(updateProduct);
         setIsLoaded(false);
         reset();
+        Toast.toastSuccess(res.data.message);
       } else {
-        console.log("toast");
+        Toast.toastError(res.data.message);
       }
     } catch (errors) {
+      Toast.toastError("erreur");
       console.log(errors);
     }
   };
@@ -143,9 +146,14 @@ function ProductAddForm() {
               {...register("category_id")}
               name="category"
               defaultValue=""
+              data-testid="selectCategory"
             >
               {categories.map((category) => (
-                <option key={category.id} value={category.id}>
+                <option
+                  key={category.id}
+                  value={category.id}
+                  data-testid={category.id}
+                >
                   {category.category_name}
                 </option>
               ))}

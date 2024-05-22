@@ -10,6 +10,15 @@ export const AuthProvider = ({ children }) => {
   const [isConnected, setIsConnected] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const contextValue = {
+    isConnected,
+    setIsConnected,
+    user,
+    setUser,
+    isLoaded,
+    setToken,
+    token,
+  };
   useEffect(() => {
     if (!isConnected && token) {
       API_FUNCTION.currentUser().then((res) => setUser(res));
@@ -19,17 +28,7 @@ export const AuthProvider = ({ children }) => {
   }, [token, isConnected]);
 
   return (
-    <LoginContext.Provider
-      value={{
-        isConnected,
-        setIsConnected,
-        user,
-        setUser,
-        isLoaded,
-        setToken,
-        token,
-      }}
-    >
+    <LoginContext.Provider value={contextValue}>
       {children}
     </LoginContext.Provider>
   );

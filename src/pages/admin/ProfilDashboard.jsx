@@ -47,7 +47,8 @@ function ProfilDashboard() {
                   icon={faUser}
                   className="profil__content__form__icon"
                 />
-                <b>Nom :</b> {user.first_name}
+                <b>Nom :</b>
+                {user.first_name}
               </label>
 
               <label htmlFor="last_name">
@@ -55,7 +56,8 @@ function ProfilDashboard() {
                   icon={faUser}
                   className="profil__content__form__icon"
                 />
-                <b>Prénom :</b> {user.last_name}
+                <b>Prénom :</b>
+                {user.last_name}
               </label>
 
               <label htmlFor="email">
@@ -63,7 +65,8 @@ function ProfilDashboard() {
                   icon={faMailBulk}
                   className="profil__content__form__icon"
                 />
-                <b>Email :</b> {user.email}
+                <b>Email :</b>
+                {user.email}
               </label>
 
               <label htmlFor="phone_number">
@@ -71,7 +74,8 @@ function ProfilDashboard() {
                   icon={faPhone}
                   className="profil__content__form__icon"
                 />
-                <b> Téléphone :</b> {user.phone_number}
+                <b>Téléphone :</b>
+                {user.phone_number}
               </label>
 
               <div className="container-addresses">

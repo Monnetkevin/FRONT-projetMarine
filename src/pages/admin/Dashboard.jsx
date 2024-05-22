@@ -14,15 +14,15 @@ import CommentDashboard from "./CommentDashboard";
 
 function Dashboard() {
   const [currentDashboard, setCurrentDashboard] = useState("profil");
-  const { user } = useAuth();
+  const { user, token } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
+    if (!token) {
       console.log("caca");
       navigate("/");
     }
-  }, [user]);
+  }, [token]);
 
   return (
     <div className="container-dashboard">

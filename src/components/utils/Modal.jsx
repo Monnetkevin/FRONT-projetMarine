@@ -1,6 +1,6 @@
 import React from "react";
 
-const ModalProfil = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   const stopPropagation = (e) => {
@@ -19,4 +19,4 @@ const ModalProfil = ({ isOpen, onClose, children }) => {
   );
 };
 
-export default ModalProfil;
+export default Modal;

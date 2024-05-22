@@ -11,38 +11,42 @@ import ProductDetails from "./pages/shop/ProductDetails";
 import Dashboard from "./pages/admin/Dashboard";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { CartProvider } from "./components/context/CartContext";
+import WebhookSuccess from "./pages/stripe/webhook/WebhookSuccess";
 
 function App() {
   return (
     <GlobalProvider>
       <BrowserRouter>
-        <NavBar />
+        <CartProvider>
+          <NavBar />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            limit={3}
+          />
 
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="light"
-          limit={3}
-        />
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/connexion" element={<Login />} />
-          <Route path="/inscription" element={<Register />} />
-          <Route path="/boutique" element={<Shop />} />
-          <Route path="/evenement" element={""} />
-          <Route path="/contact" element={""} />
-          <Route path="/boutique/:id" element={<ProductDetails />} />
-          <Route path="/profil" element={<Dashboard />} />
-        </Routes>
-        <Footer />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/connexion" element={<Login />} />
+            <Route path="/inscription" element={<Register />} />
+            <Route path="/boutique" element={<Shop />} />
+            <Route path="/evenement" element={""} />
+            <Route path="/contact" element={""} />
+            <Route path="/boutique/:id" element={<ProductDetails />} />
+            <Route path="/profil" element={<Dashboard />} />
+            <Route path="/endpoint/succes" element={<WebhookSuccess />} />
+          </Routes>
+          <Footer />
+        </CartProvider>
       </BrowserRouter>
     </GlobalProvider>
   );

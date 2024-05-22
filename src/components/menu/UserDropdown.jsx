@@ -9,12 +9,18 @@ import axios from "axios";
 import { API_ROUTE } from "../../utils/RouteApi";
 import auth from "../auth/Token";
 import { useAuth } from "../context/LoginContext";
+import Cart from "../../pages/shop/Cart";
 
 function UserDropdown() {
   const { setIsConnected, token, setToken, setUser } = useAuth();
   const navigate = useNavigate();
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
+  const [cartVisible, setCartVisible] = useState(false);
+
+  const toggleCartVisibility = () => {
+    setCartVisible(!cartVisible);
+  };
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -62,7 +68,11 @@ function UserDropdown() {
           className="cart-btn__icon-cart"
           icon={faCartShopping}
           size="lg"
+          onClick={toggleCartVisibility}
         />
+        {cartVisible && (
+          <Cart cartVisible={cartVisible} setCartVisible={setCartVisible} />
+        )}
       </div>
       <button
         className="dropdown-btn"

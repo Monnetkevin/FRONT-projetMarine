@@ -9,7 +9,7 @@
   color: $white;
   box-shadow: 0 2px 4px $color-5;
   &__left {
-    width: 40%;
+    width: 50%;
     h2 {
       margin: 0;
       font-size: 2rem;
@@ -31,4 +31,7 @@
       bottom: 0;
     }
   }
+}
+
+@media screen and (max-width: 390px) {
 }

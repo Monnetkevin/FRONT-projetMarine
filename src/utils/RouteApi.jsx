@@ -1,10 +1,14 @@
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:8000/api";
-export const API_IMG = "http://127.0.0.1:8000/storage/uploads/";
+// const API_URL = "http://127.0.0.1:8000/api";
+// export const API_IMG = "http://127.0.0.1:8000/storage/uploads/";
+
+const API_URL = "https://api-matisse-marine.asnprojets.fr/api";
+export const API_IMG =
+  "https://api-matisse-marine.asnprojets.fr/storage/uploads/";
 
 export const API_ROUTE = {
-  COMMENT: API_URL + "/comments/",
+  COMMENT: API_URL + "/comments",
   LASTCOMMENT: API_URL + "/comments/last",
 
   LOGIN: API_URL + "/login",
@@ -16,10 +20,10 @@ export const API_ROUTE = {
 
   EVENT: API_URL + "/events",
 
-  ADDRESS: API_URL + "/addresses/",
+  ADDRESS: API_URL + "/addresses",
 
   CURRENTUSER: API_URL + "/currentUser",
-  UPDATEUSER: API_URL + "/users/",
+  UPDATEUSER: API_URL + "/users",
 
   CATEGORY: API_URL + "/categories",
 
@@ -28,7 +32,7 @@ export const API_ROUTE = {
   ADDTOCART: API_URL + "/shops/addToShop",
   VIEWSHOP: API_URL + "/shops/",
   REMOVEPRODUCTSHOP: API_URL + "/shops/removeProductShop",
-  CHECKOUT: API_URL + "/stripes/checkout/",
+  CHECKOUT: API_URL + "/stripes/checkout",
 };
 
 export const API_FUNCTION = {

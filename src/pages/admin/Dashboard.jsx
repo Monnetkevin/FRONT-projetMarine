@@ -19,7 +19,6 @@ function Dashboard() {
 
   useEffect(() => {
     if (!token) {
-      console.log("caca");
       navigate("/");
     }
   }, [token]);

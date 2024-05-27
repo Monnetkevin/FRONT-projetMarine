@@ -9,6 +9,8 @@ import Shop from "./pages/shop/Shop";
 import Footer from "./components/menu/Footer";
 import ProductDetails from "./pages/shop/ProductDetails";
 import Dashboard from "./pages/admin/Dashboard";
+import Event from "./pages/Event";
+import About from "./pages/About";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CartProvider } from "./components/context/CartContext";
@@ -39,8 +41,8 @@ function App() {
             <Route path="/connexion" element={<Login />} />
             <Route path="/inscription" element={<Register />} />
             <Route path="/boutique" element={<Shop />} />
-            <Route path="/evenement" element={""} />
-            <Route path="/contact" element={""} />
+            <Route path="/evenement" element={<Event />} />
+            <Route path="/contact" element={<About />} />
             <Route path="/boutique/:id" element={<ProductDetails />} />
             <Route path="/profil" element={<Dashboard />} />
             <Route path="/endpoint/succes" element={<WebhookSuccess />} />

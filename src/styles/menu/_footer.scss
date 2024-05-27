@@ -1,5 +1,5 @@
 .footer {
-  height: $heightFooter;
+  // height: $heightFooter;
   width: 100%;
   background-color: $color-5;
   color: $color-1;
@@ -8,6 +8,33 @@
   justify-content: center;
   display: flex;
   flex-direction: row;
+
+  &__legale {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: inline-block;
+        margin-right: 1rem;
+
+        a {
+          text-decoration: none;
+          color: $white;
+
+          &.active {
+            font-weight: bold;
+          }
+
+          &:hover {
+            text-decoration: underline;
+            color: $color-1;
+          }
+        }
+      }
+    }
+  }
 }
 
 .footer-social {
@@ -18,5 +45,11 @@
   &__icon {
     color: $color-1;
     margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-social {
+    display: none;
   }
 }

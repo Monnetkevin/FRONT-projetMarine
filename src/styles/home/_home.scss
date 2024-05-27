@@ -37,3 +37,24 @@
   font-size: xx-large;
   padding-top: 1rem;
 }
+
+@media screen and (max-width: 680px) {
+  .header-main__right {
+    display: none;
+  }
+
+  .presentation-home {
+    padding: 10px 20px;
+    flex-direction: column !important;
+  }
+
+  .presentation-home__img,
+  .presentation-home__text {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 390px) {
+  .separator {
+    height: 90px;
+  }
+}

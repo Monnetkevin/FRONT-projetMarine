@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -9,6 +10,16 @@ import {
 function Footer() {
   return (
     <footer className="footer">
+      <div className="footer__legale">
+        <ul>
+          <li>
+            <Link to="#">Conditions générals</Link>
+          </li>
+          <li>
+            <Link to="#">Mention légale</Link>
+          </li>
+        </ul>
+      </div>
       <div className="footer-content">
         <p> © 2023 - MATISSE Marine</p>
       </div>

@@ -4,7 +4,7 @@ import CardComment from "./CardComment";
 
 function ListComment({ three, id }) {
   const { comments } = useGlobalContext();
-  const threeComments = comments.slice(-4);
+  const threeComments = comments ? comments.slice(-4) : [];
 
   return (
     <div className="list-cardComment">

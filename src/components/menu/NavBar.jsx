@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import UserDropdown from "./UserDropdown";
 
@@ -7,47 +7,51 @@ import { useAuth } from "../context/LoginContext";
 function NavBar() {
   const { token } = useAuth();
 
+  const toggleMenu = () => {
+    // const navButton = document.querySelector(".nav-button");
+    // const menuTop = document.querySelector(".menu-top");
+    // navButton.addEventListener("click", () => {
+    //   navButton.classList.toggle("active");
+    //   menuTop.classList.toggle("active");
+    // });
+  };
   return (
     <nav className="navbar">
-      <div className="left-section">
-        <Link to="/" className="left-section__logo">
-          <div className="left-section__logo__brand-name">MATISSE Marine</div>
-        </Link>
+      <div className="menu-toggle" onClick={toggleMenu}>
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
       </div>
-      <div className="middle-section">
-        <div className="middle-section__nav-links">
-          <ul>
-            <li>
-              <Link to="/" className="active">
-                Accueil
-              </Link>
-            </li>
-            <li>
-              <Link to="/boutique">Boutique</Link>
-            </li>
-            <li>
-              <Link to="/evenement">Evenement</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="right-section">
+
+      <div className="menu">
+        <div className="brandname">MATISSE Marine</div>
+        <ul>
+          <li>
+            <Link to="/" className="active">
+              Accueil
+            </Link>
+          </li>
+          <li>
+            <Link to="/boutique">Boutique</Link>
+          </li>
+          <li>
+            <Link to="/evenement">Evenement</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        </ul>
         {token ? (
           <UserDropdown />
         ) : (
-          <div className="connexion-links">
-            <ul>
-              <li>
-                <Link to="/connexion">Connexion</Link>
-              </li>
-              <li>
-                <Link to="/inscription">Inscription</Link>
-              </li>
-            </ul>
-          </div>
+          <ul>
+            <li>
+              <Link to="/connexion">Connexion</Link>
+            </li>
+            <li>
+              <Link to="/inscription">Inscription</Link>
+            </li>
+          </ul>
         )}
       </div>
     </nav>

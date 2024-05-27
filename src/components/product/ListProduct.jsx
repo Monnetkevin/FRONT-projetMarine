@@ -5,7 +5,7 @@ import CardProduct from "./CardProduct";
 function ListProduct() {
   const { products } = useGlobalContext();
 
-  const threeProducts = products.slice(-3);
+  const threeProducts = products ? products.slice(-3) : [];
   return (
     <div className="list-cardProduct">
       {threeProducts.map((product) => (
